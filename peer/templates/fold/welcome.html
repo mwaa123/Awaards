@@ -1,1 +1,13 @@
-<h1>hi yo</h1>
+{%extends 'fold/base.html'%}
+{% load bootstrap3 %}
+{% load static%}
+{% block content %}
+{{block.super}}
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
+{% endblock %}
+<h1>the days gone</h1>
+{% endblock %}
+
