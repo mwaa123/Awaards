@@ -121,7 +121,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 CRISPY_TEMPLATE_PACK ='bootstrap4'
-
+LOGIN_REDIRECT_URL = 'profile'
+LOGIN_URL ='login'
 
 
 STATIC_URL = '/static/'
