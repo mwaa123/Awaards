@@ -1,0 +1,9 @@
+{% extends "fold/base.html" %}
+{% block content %}
+    <h2 style="text-align: center;">You have been logged out</h2>
+    <div class="link" style="text-align: center;">
+        <small class="text-muted" style="text-align: center;">
+            <a href="{% url 'login' %}">Log In Again</a>
+        </small>
+    </div>
+{% endblock content %}
