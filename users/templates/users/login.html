@@ -1,0 +1,54 @@
+{% extends "fold/base.html" %}
+{% load crispy_forms_tags %}
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+{% load static%}
+
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&display=swap" rel="stylesheet"> 
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/users.css' %}">
+{% endblock %}
+{% block content %}
+<div class="start">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script type='text/javascript' src='index.js'></script>
+  </head>
+  <body class="the-body">
+    <span id="react-root">
+      <section class="ig-section-1">
+        <main class="the-main">
+           <div class="the-outer-1">
+             <article class="the-outer-2">
+               <div class="the-center-strip-container">
+                 <div class="login-elements">
+                   <h1>
+                     <img class="ig-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/800px-Instagram_logo.svg.png">
+                   </h1>
+                   <div class='login-forms-container'>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group" style="text-align: center;">
+                            <legend  style="text-align: center;" class="border-bottom mb-4">Log In</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group" style="text-align: center;">
+                            <button  class="btn btn-outline-info" type="submit">Login</button>
+                        </div>
+                    </form>
+                   </div>
+                 </div>
+                 <div class="sign-up">
+                   <p class='sign-up-p'>
+                    Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+                   </p>
+                 </div>
+               </div>
+             </article>
+           </div>
+        </main>    
+    </div>
+
+{% endblock content %}
