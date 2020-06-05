@@ -224,4 +224,31 @@ body {
     height: 40px;
   }
   
- 
+  .the-footer {
+    order: 5;
+    padding: 0 20px;
+    background-color: #fafafa;
+  }
+  
+  .footer-container {
+    font-size: 12px;
+    font-weight: 600px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 38px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-link {
+    margin-right: 16px;
+    margin-bottom: 7px;
+    display: inline-block;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #003569;
+    font-family: sans-serif;
+  }
