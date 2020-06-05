@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 # from django.contrib.auth.decorators import login_required
-# from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm
 # from django.core.mail import send_mail
 # from django.conf import settings
 # from django.contrib.auth.models import User
@@ -17,12 +17,7 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
             
-        return redirect('')
+        return redirect('welcome')
     else:
         form = UserRegisterForm()
-    return render(request, 'find/register.html', {'form': form})
-
-def register(request):
-    form =UserCreationForm()
-    return render(request,'users/register.html',{'form':form})
-
+    return render(request, 'users/register.html', {'form': form})
