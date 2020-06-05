@@ -21,4 +21,3 @@ class Profile (models.Model):
             img.thumbnail(output_size)
             img.save(self.profile_img.path)
 
-# Create your models here.
