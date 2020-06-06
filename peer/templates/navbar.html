@@ -3,12 +3,17 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="#"></a>
       </div>
+
+  {% if user.is_authenticated %}
+               
       <ul class="nav navbar-nav navbar-right">
-          <li ><a href="#about">about</a></li>
-          <li><a href="#skills">skills</a></li>
+          <li ><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
           <li><a href="#portfolio">portfolio</a></li> 
-          <li><a href="#additional">additional</a></li> 
-          <li><a href="#contacts">contacts</a></li> 
+          {% else %}
+          <li> <a href="{% url 'register' %}">Register</a></li> 
+          <li><a href="{% url 'login' %}">Login</a></li> 
         </ul>
+        {% endif %}
     </div>
   </nav>  

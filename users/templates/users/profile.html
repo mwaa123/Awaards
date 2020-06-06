@@ -8,51 +8,17 @@
 {% bootstrap_css %}
 <link rel="stylesheet" href="{% static 'css/prof.css' %}">
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container" data-spy="scroll" data-target="#skrollSpy" data-offset="50">  
+<div class="container" data-spy="scroll" data-target="#skrollSpy" data-offset="50">  
     <section id="about">      
       <div class="row info">
         <div class="col-xs-8">
           <ul id="text">
-            <form  action="" method="post" style="text-align: center;">
-                {% csrf_token %}
-                {{u_form|crispy}}<br>
-                {{p_form|crispy}}<br>
-                <input type="hidden" name="next" value="{{next}}">
-              </form>
+            <li><span class="glyphicon glyphicon-user">&nbsp</span>Checkout my profile</li><br><br>
+            <li><span class="glyphicon glyphicon glyphicon-calendar">&nbsp</span>View my projcts</li>
         </div>
         <div id="my-photo" class="col-xs-4">
             <img class="w-20 h-20 md:w-40 md:h-40 object-cover rounded-fullborder-2 border-pink-600 p-1" src="{{ user.profile.profile_img.url }}"alt="profile" style="border-radius: 50%;width: 100px;" >
         </div>
       </div>  
-    </section> -->
+    </section>
 {%endblock%}
