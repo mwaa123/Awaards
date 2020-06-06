@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     
 {% endblock %}
-<h1>the days gone</h1>
+<div class="dark" style="font-family: 'Kaushan Script', cursive;font-family: 'Open Sans', sans-serif;">
+    <div class="image">
+        <video autoplay muted loop id="myVideo" style="display: block;margin:0 auto;">
+            <source src="{% static 'images/vid.mp4'%}" type="video/mp4"></video>
+            <div class="overlay"> 
+                <h1>WELCOME</h1>
+                <h3>Software Developer with a twist of art</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                <a href="#about">About</a>
+                    </div>
+                    <div class="col-md-4">
+                <a href="#portfolio">Portfolio</a> 
+                    </div>
+                        <div class="col-md-4">
+                            <a href="#contact">contact</a> 
+                        </div>
+                </div>
+            </div>
+       </div>
+</div>
 {% endblock %}
 

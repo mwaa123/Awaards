@@ -1,0 +1,11 @@
+{%extends 'fold/base.html'%}
+{% load bootstrap3 %}
+{% load static%}
+{% block content %}
+{{block.super}}
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/.css' %}">
+{% endblock %}
+ 
+{% endblock %}
