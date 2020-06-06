@@ -1,0 +1,38 @@
+{%extends 'fold/base.html'%}
+{% load bootstrap3 %}
+{% load static%}
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/wel.css' %}">
+{% endblock %}
+<link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+{% block content %}<br><br><br>
+</style>
+<div class="centered">
+      <div class="container all">
+      {{block.super}}
+      <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <div class="card">
+              <div class="card-image">
+                {% if project in projects %}
+                    <h2 class="card-title" style="text-align: center;color: black;">{{object.title}}</h2>
+                    <img src="{{object.img.url}}" class="thumbnail"alt="Image">
+              </div>
+              {% else %}
+              <h2>
+                There is no project
+              </h2>
+                {%endif%}
+              <div class="card-content">
+                <p style="text-align: center;color: black;">{{object.description}}</p>
+                <small class="text-muted">{{object.date_posted|date:"F d, Y" }}</small>
+              </div>
+            </div>
+          </div>
+     
+      </div>
+      <h2 class="article-title">{{ object.title }}</h2>
+      <!-- <p class="article-content">{{ object.content }}</p> -->
+    </div>
+{%endblock%}

@@ -37,6 +37,8 @@
       <div class="card-image">
         {% if project in projects %}
   <img src="{{project.img.url}}" class="thumbnail"alt="Image" style="height: 300px;width: 300px;">
+  <span class="card-title" style="text-align: center;color: black;"><a href="{% url 'detail' project.id %}">{{project.title}}</a></span>
+
   {% else %}
        <h2>There is no project</h2>
   </div>
