@@ -6,7 +6,6 @@
 {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    
 {% endblock %}
 <div class="dark" style="font-family: 'Kaushan Script', cursive;font-family: 'Open Sans', sans-serif;">
     <div class="image">
@@ -29,5 +28,27 @@
             </div>
        </div>
 </div>
+<section id="Portfolio" class="container-fluid">
+
+    {% for project in projects %}
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="card">
+      <div class="card-image">
+        {% if project in projects %}
+  <img src="{{project.img.url}}" class="thumbnail"alt="Image" style="height: 300px;width: 300px;">
+  {% else %}
+       <h2>There is no project</h2>
+  </div>
+      {%endif%} 
+      <div class="card-content">
+        <p style="text-align: center;color: black;">{{project.description}}</p>
+        <small class="text-muted">{{ project.date_posted|date:"F d, Y" }}</small>
+      </div>
+    </div>
+  </div>
+</div>  
+</section>
+{%endfor%}
 {% endblock %}
 
