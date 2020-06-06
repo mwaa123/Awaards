@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-from .views import ProjectListView,ProjectDetailView
+from .views import ProjectListView,ProjectDetailView,ProjectCreateView,ProjectDeleteView,ProjectUpdateView
 from django.urls import path
 urlpatterns=[
     url('^$',ProjectListView.as_view(), name= 'welcome'),
