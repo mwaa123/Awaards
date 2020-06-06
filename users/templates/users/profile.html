@@ -21,4 +21,16 @@
         </div>
       </div>  
     </section>
+</div>
+    <div>
+        <form  method="POST" enctype="multipart/form-data" style="text-align: center;">{% csrf_token %}
+            {{u_form|crispy}}<br>
+            {{p_form|crispy}}<br>
+            <div class="form-group" style="text-align: center;">
+              <input type="submit" class="btn btn-primary btn-sm" value="update">
+            </div>
+
+            <input type="hidden" name="next" value="{{next}}">
+          </form>
+    </div>
 {%endblock%}
