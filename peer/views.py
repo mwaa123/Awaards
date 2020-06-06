@@ -5,7 +5,7 @@ from .models import Profile,Project
 # from django.conf import settings
 # from django.contrib.auth.models import User
 # from django.db.models.signals import UserProfile
-from django.views.generic import ListView,DetailView,DeleteView,CreateView,UpdateView
+from django.views.generic import ListView,DetailView,DeleteView,CreateView,UpdateView 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 
