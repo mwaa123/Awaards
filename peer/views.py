@@ -61,3 +61,17 @@ class ProjectDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == project.user:
             return True
         return False
+
+def search_results(request):
+    if 'search_title' in request.GET and request.GET["search_title"]:
+        search_term = request.GET.get("search_title")
+        searched_titles = User.objects.filter(username__icontains=search_term)
+        message=search_term
+
+        return render(request,"peer/search.html", {"images":searched_titles, "message":message}) 
+
+
+    else:
+        message = "Search term not found"  
+
+        return render(request,'peer/search.html',{"message":message})
