@@ -36,16 +36,17 @@
     <div class="card">
       <div class="card-image">
         {% if project in projects %}
-  <img src="{{project.img.url}}" class="thumbnail"alt="Image" style="height: 300px;width: 300px;">
-  <span class="card-title" style="text-align: center;color: black;"><a href="{% url 'detail' project.id %}">{{project.title}}</a></span>
-
+<div class="item">
+  <img src="{{project.img.url}}" class="thumbnail"alt="Image" style="height: 300px;width: 300px;vertical-align: middle;">
+  <i class="fal fa-heart"></i>
+</div>
   {% else %}
        <h2>There is no project</h2>
   </div>
       {%endif%} 
-      <div class="card-content">
-        <p style="text-align: center;color: black;">{{project.description}}</p>
-        <small class="text-muted">{{ project.date_posted|date:"F d, Y" }}</small>
+      <div class="card-content" style="color: black;">
+          <h4 class="card-title"><a href="{% url 'detail' project.id %}">{{project.title}}</a></h4><br>
+          <!-- <p style="text-align: center;color: black;">{{project.description}}</p> -->
       </div>
     </div>
   </div>

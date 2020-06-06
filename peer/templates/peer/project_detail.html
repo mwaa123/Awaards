@@ -6,12 +6,13 @@
 <link rel="stylesheet" href="{% static 'css/wel.css' %}">
 {% endblock %}
 <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
-{% block content %}<br><br><br>
+{% block content %}<br><br><br><br><br>
 </style>
 <div class="centered">
       <div class="container all">
       {{block.super}}
       <div class="row">
+        <img class="rounded-circle article-img" src="{{ project.user.profile.profile_img.url }}" style="border-radius: 200%;width: 150px;height: 150px;"><hr>
           <div class="col-sm-6 col-md-3">
             <div class="card">
               <div class="card-image">
