@@ -1,0 +1,44 @@
+{%extends 'fold/base.html'%}
+{% load bootstrap3 %}
+{% load static%}
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/wel.css' %}">
+{% endblock %}
+<link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+{% block content %}<br><br><br><br><br>
+</style>
+<div class="centered">
+      <div class="container all">
+      {{block.super}}
+      <div class="row">
+        <img class="rounded-circle article-img" src="{{ project.user.profile.profile_img.url }}" style="border-radius: 200%;width: 150px;height: 150px;"><hr>
+          <div class="col-sm-6 col-md-3">
+            <div class="card">
+              <div class="card-image">
+                {% if project in projects %}
+                    <h2 class="card-title" style="text-align: center;color: black;">{{object.title}}</h2>
+                    <img src="{{object.img.url}}" class="thumbnail"alt="Image">
+              </div>
+              {% else %}
+              <h2>
+                There is no project
+              </h2>
+                {%endif%}
+              <div class="card-content">
+                <p style="text-align: center;color: black;">{{object.description}}</p>
+                <small class="text-muted">{{object.date_posted|date:"F d, Y" }}</small>
+              </div>
+            </div>
+          </div>
+     
+      </div>
+      <h2 class="article-title">{{ object.title }}</h2>
+    </div>
+    {% if object.user == user %}
+    <div>
+      <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'project-update' object.id %}">Update</a>
+      <a style="margin-right:1000px;" class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'project-delete' object.id %}">Delete</a>
+    </div>
+    {% endif %}
+{%endblock%}

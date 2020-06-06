@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default navbar-fixed-top" id="skrollSpy">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"></a>
+      </div>
+      
+  {% if user.is_authenticated %}
+               
+      <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="search by title" name="search_title">
+              <div class="input-group-btn">
+                  <button type="submit" class="btn btn-default"><i
+                          class="glyphicon glyphicon-search"></i></button>
+              </div>
+          </div>
+      </form>
+          <li ><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="#portfolio">portfolio</a></li> 
+          {% else %}
+          <li> <a href="{% url 'register' %}">Register</a></li> 
+          <li><a href="{% url 'login' %}">Login</a></li> 
+        </ul>
+        {% endif %}
+    </div>
+  </nav>  

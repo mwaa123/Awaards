@@ -1,0 +1,98 @@
+body{
+    background-color:lightblue;  
+    }
+    header{
+      text-align:center;  
+    }
+    .row{
+      margin:0;
+    }
+    .container{
+      margin:0 auto;
+      width:100%;
+      padding:0;
+      max-width:1800px;
+      min-width:600px;
+    }
+    .navbar.navbar-default, nav.navbar-nav{
+      background:rgba(255,255,255,0.3);
+      border:none;
+    }
+    .nav.navbar-nav.navbar-right a{
+      color:black;
+      opacity:0.6;
+    }
+    .nav.navbar-nav.navbar-right a:hover{
+      opacity:1;
+      background:rgba(255,255,255,0.5);
+    }
+    #text>li{
+      opacity:0.7;
+    
+    }
+    .navbar-brand{
+      color:black !important;  
+    }
+    .info ul{
+      vertical-align:middle;
+      list-style-type: none;  
+      text-align:right;
+      padding-right:10px;
+      padding-top:5%;
+      font-size:15px;
+    }
+    .info{
+      margin:0 auto;
+      border:0px;
+      display: flex;  
+    }
+   fo li{
+      color:white;
+      opacity:0.5;
+      margin:10px;
+      padding:5px;
+    }
+    #my-photo img{
+      width:150px;
+      padding-top:8%;;
+    }
+    #my-photo{
+      text-align:left;
+    }
+    
+    #about{
+      background:url("https://res.cloudinary.com/codingsquirrel/image/upload/v1477942751/%D0%91%D0%B5%D0%B7_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_yumofp.jpg") no-repeat center center fixed;
+      background-size:cover;  
+      padding-bottom: 50px;
+      padding-top: 60px;
+    }
+    #about li{
+      color:white;
+    }
+    #career-and-study{
+      width:100%;
+      text-align:right;
+      display: block; margin: 0 auto;
+    }
+    #career-and-study>div{
+      background-color:#fff;
+      margin:0;
+      border:0;
+    }
+    #career-and-study img{  
+      vertical-align: middle;
+      width:70px;
+    }
+    #career-and-study ul{
+      border-left: 1px solid lightgrey;
+      color:black;
+      text-align:left;
+      padding-left:10px;
+      list-style-type: none; 
+      min-height:70px;
+    }
+    #career-and-study li{
+      color:lightgrey;
+    }
+
+    

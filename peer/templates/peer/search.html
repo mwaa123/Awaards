@@ -1,0 +1,28 @@
+{%extends 'fold/base.html'%}
+{% block content %}
+<div class="container">   
+     <div class="row">
+        {% if projects|length > 0 %}
+        <h1 style="color: black;"  class="text-info text-center">Found {{ projects|length }} results of searched term {{message}}</h1>
+        {% else %}
+        <h1 style="color: black;" class="text-info text-center"> Found 0 results for the search term {{message}}</h1>
+        {% endif %}    
+    </div>    
+<div class="row"> 
+        {% if projects %}
+        {% for project in projects %}
+    <div class="col-md-4">
+        <div class=""> 
+            <figure>
+                <a href="{% url 'detail' project.id %}"><img src="{{project.profile.profile_img.url}}" class="img-responsive imgs" id='img'></a>                      
+            </figure>
+                <small class="text-muted">
+                    <a href="{% url 'detail' project.id %}">View projects posted by {{message}}?</a>
+                </small>            
+        </div>        
+    </div>
+        {% endfor %}
+        {% endif %}
+</div>
+</div>
+{% endblock %}

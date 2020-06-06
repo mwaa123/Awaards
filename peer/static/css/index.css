@@ -1,0 +1,70 @@
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+}
+h1 {
+    line-height: .95;
+    color: black;
+    font-weight: 800;
+    font-size: 120px;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+/* .proj{
+    column-count: 3;
+  }   */
+  
+  
+  div.item img {
+    max-width: 100%;
+    vertical-align: top;
+    height: 210px;
+  }
+  
+
+  
+  div.item a {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+  }
+
+  div.item  {
+    color: #34495e;
+  }
+ 
+  
+  
+  div.item:hover img {
+    opacity: 0.3;
+    filter: grayscale(100%);
+  }
+  
+  div.item * {
+    transition: all 1s ease-in-out;
+  }
+  
+  
+  /* the translate places the icon in the center of the image animation */
+  div.item i {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  
+  div.item:hover i {
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 1s 100ms cubic-bezier(.175, .885, .32, 1.275);
+  }
