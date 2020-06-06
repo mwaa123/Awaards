@@ -20,3 +20,24 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'pk': self.pk})
+
+class Content(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Usability (models.Model):
+
+    name = models.CharField(max_length=100) 
+
+    def __str__(self):
+        return self.name
+
+class Design(models.Model): 
+
+    name = models.CharField(max_length=100)    
+
+    def __str__(self):
+        return self.name
