@@ -12,7 +12,8 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     img = models.ImageField(upload_to='gala/',blank=True)
-    date_posted = models.DateTimeField(default=timezone.now) 
+    date_posted = models.DateTimeField(default=timezone.now)
+    project_link = models.URLField(unique=True, blank = True, null =True)
     profile = models.ForeignKey(Profile, on_delete = models.CASCADE,null=True)
 
     def __str__(self):
@@ -20,24 +21,52 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'pk': self.pk})
+    
+    @property
+    def design_votes(self):
+       if self.votes.count() == 0:
+           return 5
+       return sum([r.design_votes for r in self.votes.all()]) / self.votes.count()
 
-class Content(models.Model):
+        
+    @property
+    def content_votes(self):
+       if self.votes.count() == 0:
+           return 5
+       return sum([r.content_votes for r in self.votes.all()]) / self.votes.count()    
 
-    name = models.CharField(max_length=100)
+    @property
+    def usability_votes(self):
+       if self.votes.count() == 0:
+           return 5
+       return sum([r.usability_votes for r in self.votes.all()]) / self.votes.count()
+
+        
+    @property
+    def creativity_votes(self):
+       if self.votes.count() == 0:
+           return 5
+       return sum([r.creativity_votes for r in self.votes.all()]) / self.votes.count()
+
+class Vote(models.Model):
+
+    ratings = (1, 1),(2, 2),(3, 3),(4, 4),(5, 5),(6, 6),(7, 7),(8, 8),(9, 9),(10, 10)
+
+    project = models.ForeignKey(Project, related_name = 'votes', on_delete = models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    design_votes = models.IntegerField(choices = ratings, default = 0)
+     
+    content_votes = models.IntegerField(choices = ratings, default = 0)
+    usability_votes = models.IntegerField(choices = ratings, default = 0)
+    creativity_votes = models.IntegerField(choices = ratings, default = 0)
+    
 
     def __str__(self):
-        return self.name
+        return f'design {self.design_votes} usability {self.usability_votes} content {self.content_votes} creativity {self.creativity_votes}'
 
-class Usability (models.Model):
 
-    name = models.CharField(max_length=100) 
+    def get_absolute_url(self):
+        return reverse('welcome')    
 
-    def __str__(self):
-        return self.name
 
-class Design(models.Model): 
 
-    name = models.CharField(max_length=100)    
-
-    def __str__(self):
-        return self.name

@@ -1,14 +1,12 @@
 
 from django.shortcuts import render,redirect
 from .models import Profile,Project
-# from django.core.mail import send_mail
-# from django.conf import settings
-# from django.contrib.auth.models import User
-# from django.db.models.signals import UserProfile
 from django.views.generic import ListView,DetailView,DeleteView,CreateView,UpdateView 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-
+from django.http import HttpResponse
+from django.urls import reverse
+from .forms import VoteForm
 def welcome(request):
 
         context ={
@@ -75,3 +73,26 @@ def search_results(request):
         message = "Search term not found"  
 
         return render(request,'peer/search.html',{"message":message})
+
+
+
+ 
+class VoteCreateView(LoginRequiredMixin,CreateView):
+    model = Vote
+    fields = ['design_votes', 'usability_votes', 'creativity_votes', 'content_votes']
+
+    def dispatch(self, request, *args, **kwargs):
+        """
+        Overridden so we can make sure the `Project` instance exists
+        before going any further.
+        """
+        self.project = get_object_or_404(Project, pk=kwargs['pk'])
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.project = self.project
+        return super().form_valid(form)
+
+    def get_absolute_url(self):
+        return reverse('', kwargs={'pk': self.pk})       
